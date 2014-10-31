@@ -11,7 +11,7 @@ use Test::Builder 0.94;
 my $Test = Test::Builder->new;
 
 # auto-export our 2 subs
-use base qw( Exporter );
+use parent qw( Exporter );
 our @EXPORT = qw( pod_file_ok all_pod_files_ok ); ## no critic ( ProhibitAutomaticExportation )
 
 =method all_pod_files_ok( [ @files ] )
