@@ -2,6 +2,8 @@ package Test::Pod::Spelling::CommonMistakes;
 
 # ABSTRACT: Checks POD for common spelling mistakes
 
+use strict;
+use warnings;
 # Import the modules we need
 use Pod::Spell::CommonMistakes 0.01 qw( check_pod_all );
 use Test::Pod 1.40 ();
