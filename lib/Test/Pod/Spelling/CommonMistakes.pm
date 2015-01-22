@@ -26,7 +26,10 @@ is passed to the C<pod_file_ok()> function.
 =cut
 
 sub all_pod_files_ok {
-	my @files = @_ ? @_ : Test::Pod::all_pod_files();
+	my (@files) = @_;
+    if (!@files) {
+        @files = Test::Pod::all_pod_files();
+    }
 
 	$Test->plan( tests => scalar @files );
 
@@ -51,8 +54,8 @@ test name "Spelling test for $file".
 =cut
 
 sub pod_file_ok {
-	my $file = shift;
-	my $name = @_ ? shift : "Spelling test for $file";
+	my ($file, $name) = @_;
+	$name ||= "Spelling test for $file";
 
 	if ( ! -f $file ) {
 		$Test->ok( 0, $name );
